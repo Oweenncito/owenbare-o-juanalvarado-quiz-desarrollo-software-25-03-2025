@@ -14,43 +14,43 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class MotocicletaService {
-    
-     private final MotocicletaRepository motocicletaRepository;
-       
-     @Autowired 
-     
-     public MotocicletaService(MotocicletaRepository motocicletaRepository){
-       
-         this.motocicletaRepository = motocicletaRepository;
-         initSampleData ();
-     }
-       private void initSampleData() {
-           
-        save(new Motocicleta("Yamaha", "TBI67G", 125, 13.000000,"rojo"));
-        save ( new Motocicleta ("susuzi", "LEE18G", 110, 5.000000, "negro"));
-        save ( new Motocicleta ("bmw", "JDK23H", 1000, 120.000000, "blanca"));
+
+    private final MotocicletaRepository motocicletaRepository;
+
+    @Autowired
+    public MotocicletaService(MotocicletaRepository motocicletaRepository) {
+        this.motocicletaRepository = motocicletaRepository;
+        initSampleData();
     }
 
-         public Motocicleta save(Motocicleta motocicleta) {
+    private void initSampleData() {
+        save(new Motocicleta("Yamaha", "TBI67G", 125, 13000.0, "rojo"));
+        save(new Motocicleta("Suzuki", "LEE18G", 110, 5000.0, "negro"));
+        save(new Motocicleta("BMW", "JDK23H", 1000, 120000.0, "blanca"));
+        save(new Motocicleta("Honda", "XYZ789", 125, 14000.0, "azul"));
+    }
+
+    public Motocicleta save(Motocicleta motocicleta) {
         return motocicletaRepository.save(motocicleta);
     }
-             public Motocicleta findById(String id) {
-        return  motocicletaRepository.findById(id);
+
+    public Motocicleta findById(String id) {
+        return motocicletaRepository.findById(id);
     }
-    
-    // Listar todos los usuarios
+
+    public List<Motocicleta> findByCilindraje(int cilindraje) {
+        return motocicletaRepository.findByCilindraje(cilindraje);
+    }
+
     public List<Motocicleta> findAll() {
         return motocicletaRepository.findAll();
     }
-    
-    // Actualizar un usuario
-    public Motocicleta pdate(Motocicleta motocicleta) {
+
+    public Motocicleta update(Motocicleta motocicleta) {
         return motocicletaRepository.update(motocicleta);
     }
-    
-    // Eliminar un usuario
+
     public void deleteById(String id) {
         motocicletaRepository.deleteById(id);
     }
-    
 }

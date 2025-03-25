@@ -10,34 +10,39 @@ import org.springframework.stereotype.Repository;
 public class MotocicletaRepository {
     private final Map<String, Motocicleta> baseDeDatos = new HashMap<>();
 
-    // Guardar una motocicleta
+    // Buscar motocicletas por cilindraje
+    public List<Motocicleta> findByCilindraje(int cilindraje) {
+        List<Motocicleta> resultado = new ArrayList<>();
+        for (Motocicleta moto : baseDeDatos.values()) {
+            if (moto.getCilindraje() == cilindraje) {
+                resultado.add(moto);
+            }
+        }
+        return resultado;
+    }
+
     public Motocicleta save(Motocicleta motocicleta) {
         baseDeDatos.put(motocicleta.getId(), motocicleta);
         return motocicleta;
     }
 
-    // Encontrar motocicleta por ID
     public Motocicleta findById(String id) {
         return baseDeDatos.get(id);
     }
 
-    // Listar todas las motocicletas
     public List<Motocicleta> findAll() {
         return new ArrayList<>(baseDeDatos.values());
     }
 
-    // Eliminar una motocicleta
     public void deleteById(String id) {
         baseDeDatos.remove(id);
     }
 
-    // Actualizar las motocicletas
     public Motocicleta update(Motocicleta motocicleta) {
         if (baseDeDatos.containsKey(motocicleta.getId())) {
             baseDeDatos.put(motocicleta.getId(), motocicleta);
             return motocicleta;
         }
         return null;
-
     }
 }
