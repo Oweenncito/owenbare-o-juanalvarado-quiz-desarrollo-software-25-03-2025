@@ -20,6 +20,12 @@ public class MotocicletaRepository {
         }
         return resultado;
     }
+        public Motocicleta findByPlaca(String placa) {
+        return baseDeDatos.values().stream()
+                .filter(moto -> moto.getPlaca().equalsIgnoreCase(placa))
+                .findFirst()
+                .orElse(null);
+    }
 
     public Motocicleta save(Motocicleta motocicleta) {
         baseDeDatos.put(motocicleta.getId(), motocicleta);

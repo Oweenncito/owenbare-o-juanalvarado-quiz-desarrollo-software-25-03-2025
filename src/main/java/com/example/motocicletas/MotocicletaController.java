@@ -37,6 +37,14 @@ public class MotocicletaController {
         return motocicletas.isEmpty() ? new ResponseEntity<>(HttpStatus.NOT_FOUND)
                 : new ResponseEntity<>(motocicletas, HttpStatus.OK);
     }
+    
+       @GetMapping("/placa/{placa}")
+    public ResponseEntity<Motocicleta> getMotocicletaByPlaca(@PathVariable String placa) {
+        Motocicleta motocicleta = motocicletaService.findByPlaca(placa);
+        return motocicleta != null ? new ResponseEntity<>(motocicleta, HttpStatus.OK)
+                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
 
     @PostMapping
     public ResponseEntity<Motocicleta> createUsuario(@RequestBody Motocicleta motocicleta) {

@@ -33,6 +33,11 @@ public class MotocicletaService {
     public Motocicleta save(Motocicleta motocicleta) {
         return motocicletaRepository.save(motocicleta);
     }
+    
+       public Motocicleta findByPlaca(String placa) {
+        return motocicletaRepository.findByPlaca(placa);
+    }
+
 
     public Motocicleta findById(String id) {
         return motocicletaRepository.findById(id);
