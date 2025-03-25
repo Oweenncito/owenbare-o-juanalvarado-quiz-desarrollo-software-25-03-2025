@@ -25,6 +25,7 @@ public class MotocicletaService {
          initSampleData ();
      }
        private void initSampleData() {
+           
         save(new Motocicleta("Yamaha", "TBI67G", 125, 13.000000,"rojo"));
         save ( new Motocicleta ("susuzi", "LEE18G", 110, 5.000000, "negro"));
         save ( new Motocicleta ("bmw", "JDK23H", 1000, 120.000000, "blanca"));
