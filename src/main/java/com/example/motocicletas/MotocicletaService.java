@@ -13,13 +13,13 @@ import org.springframework.stereotype.Service;
  * @author PC
  */
 @Service
-public class MotoCicletaService {
+public class MotocicletaService {
     
      private final MotocicletaRepository motocicletaRepository;
        
      @Autowired 
      
-     public MotoCicletaService (MotocicletaRepository motocicletaRepository){
+     public MotocicletaService(MotocicletaRepository motocicletaRepository){
        
          this.motocicletaRepository = motocicletaRepository;
          initSampleData ();
